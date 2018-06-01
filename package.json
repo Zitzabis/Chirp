@@ -19,5 +19,8 @@
     "url": "https://github.com/Zitzabis/Chirp/issues"
   },
   "homepage": "https://github.com/Zitzabis/Chirp#readme",
-  "devDependencies": {}
+  "devDependencies": {},
+  "dependencies": {
+    "jquery": "^3.3.1"
+  }
 }
