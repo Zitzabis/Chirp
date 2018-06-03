@@ -1,46 +1,34 @@
-let $ = require('jquery')
-let fs = require('fs')
-let filename = 'contacts'
-let sno = 0
+let $ = require('jquery');
+let Amplitude = require('./node_modules/amplitudejs/dist/amplitude.js');
+let fs = require('fs');
+let filename = 'contacts';
+let sno = 0;
 
-$('#add-to-list').on('click', () => {
-   let name = $('#Name').val()
-   let email = $('#Email').val()
-   $('#Name').val("");
-   $('#Email').val("");
+Amplitude.init({
+      "bindings": {
+            37: 'prev',
+            39: 'next',
+            32: 'play_pause'
+      },
+      "songs": [
+            {
+                  "name": "Poquito Mas",
+                  "artist": "Infected Mushroom",
+                  "album": "Legend Of The Black Shawarma",
+                  "url": "./music/sample.flac",
+                  "cover_art_url": "/cover/art/url.jpg"
+            }
+      ]
+});
 
-   fs.appendFile('contacts', name + ',' + email + '\n')
+$( document ).ready(function() {
+      let song = Amplitude.getActiveSongMetadata();
+      $("#my_image").attr("src",song.cover_art_url);
 
-   addEntry(name, email)
-})
+      $('#playButton');
+});
 
-function addEntry(name, email) {
-   if(name && email) {
-      sno++
-      let updateString = '<tr><td>'+ sno + '</td><td>'+ name +'</td><td>' 
-         + email +'</td></tr>'
-      $('#contact-table').append(updateString)
-   }
-}
+Amplitude.getSongs().forEach(function(item){
+      $('#currentSongs').append(item.name);
+});
 
-function loadAndDisplayContacts() {  
-   
-   //Check if file exists
-   if(fs.existsSync(filename)) {
-      let data = fs.readFileSync(filename, 'utf8').split('\n')
-      
-      data.forEach((contact, index) => {
-         let [ name, email ] = contact.split(',')
-         addEntry(name, email)
-      })
-   
-   } else {
-      console.log("File Doesn\'t Exist. Creating new file.")
-      fs.writeFile(filename, '', (err) => {
-         if(err)
-            console.log(err)
-      })
-   }
-}
-
-loadAndDisplayContacts()
