@@ -26,6 +26,10 @@
                   <div class="col text-center">
                         <img class="img-fluid rounded cover-image" id="coverImage">
                         <br>
+                        <span onClick="manualRangeSelect()"><input id="range" type="range" value="0" data-rangeslider></span>
+                        <audio id="audio"></audio>
+                        <span class="amplitude-current-time" amplitude-main-current-time="true"></span>
+                        <br>
                         <button type="button" id="playButton" class="btn btn-primary amplitude-play play" onClick="playButtonClick()">Play</button>
                   </div>
                   <span amplitude-song-info="{song_meta_index}" amplitude-main-song-info="true"></span>
