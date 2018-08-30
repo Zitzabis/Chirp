@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html style="height: 100%;">
    <head>
       <meta charset = "UTF-8">
       <title id="appName">Chirp</title>
@@ -9,19 +9,26 @@
       <link rel = "stylesheet" href = "./css/main.css" />
    </head>
    
-   <body class="text-white">
-      <div class="container-full">
-            <div class="row dark-inset">
-                  <div class="col box">
-                        Title
+   <body class="text-white" style="height: 100%;">
+      <div class="container-fluid h-100" style="padding:0;margin:0;">
+            <div class="row" style="-webkit-app-region: drag;">
+                  <div class="col box darker-inset title text-center">
+                        Chirp
                   </div>
             </div>
             <div class="row">
-                  <div class="col-4 dark-inset" id="currentSongs"></div>
-                  <div class="col text-center">
-                        <img class="image-fluid" id="coverImage">
-                        <button type="button" class="btn btn-primary amplitude-play">Play</button>
+                  <div class="col-4 box dark-inset">
+                        Title
                   </div>
+            </div>
+            <div class="row h100" style="height: 100%;">
+                  <div class="col-4 dark-inset" id="currentSongs" ></div>
+                  <div class="col text-center">
+                        <img class="img-fluid rounded cover-image" id="coverImage">
+                        <br>
+                        <button type="button" id="playButton" class="btn btn-primary amplitude-play play" onClick="playButtonClick()">Play</button>
+                  </div>
+                  <span amplitude-song-info="{song_meta_index}" amplitude-main-song-info="true"></span>
             </div>
       </div>
       <script src = "./view.js" ></script>

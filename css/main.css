@@ -1,3 +1,5 @@
+html { overflow-y: hidden; }
+
 body {
     background-color: #1565C0;
     font-family: 'Roboto', sans-serif;
@@ -12,9 +14,17 @@ body {
     background-color: rgba(0, 0, 0, 0.171);
 }
 
+.darker-inset {
+    background-color: rgba(0, 0, 0, 0.384);
+}
+
 .title {
     font-family: 'Patrick Hand', cursive;
     font-size: 3rem;
+}
+
+.cover-image {
+    padding: 2rem;
 }
 
 /* Customized Bootstrap */
@@ -27,7 +37,7 @@ body {
 .container-full {
     margin: 0 auto;
     width: 100%;
-  }
+}
 
 .row {
     padding: 0px;
